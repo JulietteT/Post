@@ -1,19 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
-  <id>tag:help.appveyor.com,2012-11-13:/discussions/questions/61507-projects-quota-exceeded</id>
-  <link type="text/html" rel="alternate" href="https://help.appveyor.com/discussions/questions/61507-projects-quota-exceeded"/>
-  <link type="application/atom+xml" rel="self" href="https://help.appveyor.com/discussions/questions/61507-projects-quota-exceeded.atom"/>
-  <title type="html">AppVeyor: Discussion </title>
-  <updated>2023-01-23T15:29:59Z</updated>
-  <entry>
-    <id>tag:help.appveyor.com,2012-11-13:Comment/57660292</id>
-    <published>2023-01-23T15:29:58Z</published>
-    <updated>2023-01-23T15:29:59Z</updated>
-    <link type="text/html" rel="alternate" href="https://help.appveyor.com/discussions/questions/61507-projects-quota-exceeded#comment-1" />
-    <title type="html">Projects quota exceeded</title>
-    <content type="html">&lt;div&gt;&lt;p&gt;Hello, it is possible to increase the quota, please. Thanks&lt;/p&gt;&lt;/div&gt;</content>
-    <author>
-      <name>Юлия</name>
-    </author>
-  </entry>
-</feed>
+image: Ubuntu  # образ для сборки
+
+stack: jdk 11  # версия JDK
+
+branches:
+  only:
+    - master  # ветка git
+
+build: off  # будем использовать свой скрипт сборки
+
+build_script:
+  - chmod +x gradlew
+  - ./gradlew test --info
